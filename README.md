@@ -1,5 +1,10 @@
-# amanasci.github.io
-This is project of amanasci.github.io page...
+# amanasci.github.io source code
 
-I created this..
+This is source code for my website amanasci.github.io .
+This is my portfolio website.
 
+>Please suggest edits for this project.
+
+## Contact Me
+
+> You can contact me at: kumaramanasci@gmail.com .
