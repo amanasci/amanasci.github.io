@@ -9,11 +9,16 @@ let c = 8.0 / 3.0;
 let points = new Array();
 
 function setup() {
-  var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
-  canvas.parent("header");
-  colorMode(HSB);
+  
+  var canvasDiv = document.getElementById('headers');
+  var wwidth = canvasDiv.offsetWidth
+  var wheight = canvasDiv.offsetHeight
+  var canvas = createCanvas(wwidth, wheight, WEBGL);
+  canvas.parent("headers");
+  colorMode(RGB);
   perspective((60 * PI) / 180, width / height, 1, 5000);
 }
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
@@ -53,7 +58,7 @@ function draw() {
   beginShape(points);
 
   for (let v of points) {
-    stroke(hu, 255, 255);
+    stroke(0, 0, hu);
     vertex(v.x, v.y, v.z);
     //var offset = p5.Vector.random3D();
     //offset.mult(0.1);
@@ -65,8 +70,6 @@ function draw() {
     }
   }
   endShape();
-
-  console.log(points.length);
 
   //println(x,y,z);
 }
