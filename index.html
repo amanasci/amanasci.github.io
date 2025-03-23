@@ -1,283 +1,405 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-        />
-        <title>Aman Kumar (amanasci)</title>
-        <meta name="twitter:title" content="Aman Kumar (amanasci)" />
-        <meta name="twitter:card" content="summary" />
-        <meta
-            name="description"
-            content="Know more about Aman Kumar (amanasci)"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-            name="twitter:image"
-            content="https://amanasci.github.io/assets/img/aman1-200h.jpeg"
-        />
-        <link
-            rel="apple-touch-icon"
-            type="image/png"
-            sizes="180x180"
-            href="assets/img/favicon.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="180x180"
-            href="assets/img/favicon.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="180x180"
-            href="assets/img/favicon.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="180x180"
-            href="assets/img/favicon.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="180x180"
-            href="assets/img/favicon.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="800x800"
-            href="assets/img/Asci%20Labs%20Logo%20BG.png"
-        />
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="assets/css/styles.min.css" />
-    </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/img/favicon.png" type="image/png" />
+  <meta name="description" content="Research profile of Aman Kumar, a masters student in Astrophysics at IUCAA, India.">
+  <meta name="keywords" content="research, Aman Kumar, Astrophysics, IUCAA, publications, software development">
+  <meta name="author" content="Aman Kumar">
+  <title>Aman Kumar</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      padding: 1rem 2rem;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.7);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+    }
+    nav ul li {
+      margin-left: 2rem;
+    }
+    nav ul li a {
+      color: #e0e0e0;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #DA70D6;
+    }
+    /* Hero Section */
+    #home {
+      position: relative;
+      height: 100vh;
+      background: url("https://source.unsplash.com/1600x900/?space") no-repeat center center/cover;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    #home::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      text-align: center;
+      color: #ffffff;
+      z-index: 2;
+    }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.8rem;
+    }
+    /* Particle Canvas */
+    #particle-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    /* Section Styles */
+    section {
+      padding: 5rem 2rem;
+      position: relative;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.8rem;
+      color: #DA70D6;
+    }
+    /* About Section */
+    #about {
+      background: #1e1e1e;
+    }
+    #about .content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+    #about .content div {
+      flex: 1;
+      min-width: 300px;
+    }
+    #about p {
+      font-size: 1.2rem;
+      color: #cccccc;
+      text-align: justify;
+    }
+    /* Explore Projects Section */
+    #explore {
+      background: #181818;
+      text-align: center;
+    }
+    .explore-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .explore-buttons a {
+      padding: 1rem 2rem;
+      background: #242424;
+      border-radius: 8px;
+      color: #DA70D6;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .explore-buttons a:hover {
+      background: #DA70D6;
+      color: #121212;
+      transform: translateY(-3px);
+    }
+    /* Contact Section */
+    #contact {
+      background: #0d0d0d;
+      text-align: center;
+    }
+    #contact p {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    #contact a {
+      color: #DA70D6;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    #contact a:hover {
+      color: #ffcc00;
+    }
+    /* Notice Board Section */
+    #notice {
+      padding: 4rem 2rem;
+      background: #1a1a1a;
+    }
+    #notice h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.8rem;
+      color: #DA70D6;
+    }
+    .timeline {
+      position: relative;
+      margin: 0 auto;
+      padding: 1rem 0;
+      width: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .timeline::-webkit-scrollbar {
+      display: none;
+    }
+    .timeline-inner {
+      display: flex;
+      gap: 2rem;
+      position: relative;
+      padding: 1rem;
+      white-space: nowrap;
+    }
+    .timeline-inner::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: #DA70D6;
+      transform: translateY(-50%);
+      z-index: 0;
+    }
+    .timeline-item {
+      position: relative;
+      padding: 1.5rem;
+      background: #242424;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      z-index: 1;
+      flex: 0 0 auto;
+    }
+    .timeline-date {
+      font-size: 0.9rem;
+      color: #cccccc;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-content p {
+      margin: 0;
+      font-size: 1rem;
+      color: #e0e0e0;
+    }
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul li {
+        margin: 0.5rem 0;
+      }
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      .hero-content p {
+        font-size: 1.4rem;
+      }
+      .explore-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="astro.html">Astro Projects</a></li>
+      <li><a href="software.html">Software Projects</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="https://amanasci.github.io/blog/">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <body style="color: rgb(255, 255, 255); background: rgb(0, 0, 0)">
-        <div
-            class="text-center profile-card"
-            style="margin: 15px; background-color: #ffffff"
-        >
-            <div class="profile-card-img" style="height: 150px"></div>
-            <div style="background: #000000">
-                <img
-                    class="rounded-circle"
-                    style="margin-top: -70px"
-                    src="assets/img/aman1-200h.jpeg"
-                    height="150px"
-                />
-                <h3>Aman Kumar&nbsp;<br />(amanasci)</h3>
-                <p style="padding: 20px; padding-bottom: 0; padding-top: 5px">
-                    Explorer, Researcher and Engineer. <br />I love exploring
-                    mathematics, computer science, electronics, physics and
-                    biology.
-                </p>
-                <p style="padding: 20px; padding-bottom: 0; padding-top: 5px">
-                    Contact : kumaramanasci@gmail.com
-                </p>
-                <a
-                    class="btn btn-primary"
-                    role="button"
-                    style="background: rgb(113, 33, 150)"
-                    href="https://amanasci.github.io/blog/"
-                    >Read more about my interests on my blog!&nbsp;</a
-                >
+  <!-- Hero Section -->
+  <section id="home">
+    <canvas id="particle-canvas"></canvas>
+    <div class="hero-content">
+      <h1>Aman Kumar</h1>
+      <p>Aspiring Astrophysicist</p>
+    </div>
+  </section>
+  
+  <!-- Notice Board Section -->
+  <section id="notice">
+    <h2>Notice Board</h2>
+      <div class="timeline">
+        <div class="timeline-inner">
+          <div class="timeline-item">
+            <div class="timeline-date">January 2025</div>
+            <div class="timeline-content">
+              <p>ChronoXtract:Beta Release!</p>
             </div>
-            <div style="padding: 15px; background: #000000"></div>
-            <div class="card" style="border-style: none">
-                <div
-                    class="card-body"
-                    style="
-                        color: var(--bs-card-bg);
-                        background: #000000;
-                        border-style: none;
-                        border-color: var(--bs-black);
-                    "
-                >
-                    <p></p>
-                    <h4
-                        class="card-title"
-                        style="
-                            color: rgb(255, 255, 255);
-                            text-align: center;
-                            border-style: none;
-                        "
-                    >
-                        Current Positions
-                    </h4>
-                    <h6
-                        class="text-muted card-subtitle mb-2"
-                        style="text-align: center"
-                    >
-                        List of positions I am currently holding
-                    </h6>
-                    <div style="padding: 10px; background: #000000"></div>
-                    <div
-                        class="flex-column align-items-xl-start"
-                        style="margin-left: 15%"
-                    >
-                        <p class="text-start">
-                            1.&nbsp; Masters Student @ Inter University Centre
-                            for Astronomy and Astrophysics, Pune, India &
-                            Savitri Bai Phule Pune University, Pune, India.
-                        </p>
-                        <p class="text-start">2.&nbsp; Founder @ Psintica</p>
-                    </div>
-                </div>
+          </div>
+          <!-- <div class="timeline-item">
+            <div class="timeline-date">2025-02-15</div>
+            <div class="timeline-content">
+              <p>Update: Software project beta release.</p>
             </div>
-            <div style="padding: 15px; background: #000000"></div>
-            <div class="card" style="border-style: none">
-                <div
-                    class="card-body"
-                    style="
-                        color: var(--bs-card-bg);
-                        background: #000000;
-                        border-style: none;
-                        border-color: var(--bs-black);
-                    "
-                >
-                    <p></p>
-                    <h4
-                        class="card-title"
-                        style="
-                            color: rgb(255, 255, 255);
-                            text-align: center;
-                            border-style: none;
-                        "
-                    >
-                        Previous Experience
-                    </h4>
-                    <h6
-                        class="text-muted card-subtitle mb-2"
-                        style="text-align: center"
-                    ></h6>
-                    <div style="padding: 10px; background: #000000"></div>
-                    <div style="margin-left: 15%">
-                        <p class="text-start">
-                            1.&nbsp; Electrical Engineering @ Tezpur University,
-                            Tezpur, India.
-                        </p>
-                        <p class="text-start">
-                            2.&nbsp; Visiting Student @ Inter University Centre
-                            for Astronomy and Astrophysics, Pune, India.
-                        </p>
-                        <p class="text-start">
-                            3.&nbsp; Research Intern @ Instituto de Astrofísica
-                            e Ciências do Espaço, Portugal. <br />
-                        </p>
-                        <p class="text-start">
-                            4.&nbsp; Research Intern @ IFJ PAN Institute of
-                            Nuclear Physics Polish Academy of Sciences<br />(Worked
-                            remotely with Dr. Gopal Bhatta)
-                        </p>
-                        <p class="text-start">
-                            5.&nbsp; Research Intern @ Department of Applied
-                            Sciences, Tezpur University<br />(Worked on
-                            Accretion near Black Holes&nbsp; and other compact
-                            objects with Dr. Biplob Sarkar)
-                        </p>
-                        <p class="text-start">
-                            6.&nbsp;&nbsp; Research Mentee @ Old Dominion
-                            University, USA<br />(Learnt about Nuclear Physics,
-                            Lattice QCD and other exciting stuff from Dr. Raul
-                            Briceno and Dr. Andrew Jackura)<br />
-                        </p>
-                        <p class="text-start">
-                            7.&nbsp; Year Long Student @ The Coding School<br />(
-                            Studied in the first batch of Intro to Quantum
-                            Computing Course by The Coding School by IBM )<br />
-                        </p>
-                    </div>
-                </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2025-02-15</div>
+            <div class="timeline-content">
+              <p>Update: Software project beta release.</p>
             </div>
-            <div style="padding: 15px; background: #000000"></div>
-            <div class="card" style="border-style: none">
-                <div
-                    class="card-body"
-                    style="
-                        color: var(--bs-card-bg);
-                        background: #000000;
-                        border-style: none;
-                        border-color: var(--bs-black);
-                    "
-                >
-                    <p></p>
-                    <h4
-                        class="card-title"
-                        style="
-                            color: rgb(255, 255, 255);
-                            text-align: center;
-                            border-style: none;
-                        "
-                    >
-                        Publications&nbsp;
-                    </h4>
-                    <h6
-                        class="text-muted card-subtitle mb-2"
-                        style="text-align: center"
-                    ></h6>
-                    <div style="padding: 10px; background: #000000"></div>
-                    <div style="margin-left: 15%">
-                        <p class="text-start">
-                            1.&nbsp; &nbsp;Vivek Reddy Pininti, Gopal Bhatta,
-                            Sagarika Paul, Aman Kumar, Aayushi Rajgor, Rahul
-                            Barnwal, Sarvesh Gharat, Exploring short-term
-                            optical variability of blazars using TESS, Monthly
-                            Notices of the Royal Astronomical Society, Volume
-                            518, Issue 1, January 2023, Pages 1459–1471,&nbsp;<a
-                                href="https://doi.org/10.1093/mnras/stac3125"
-                                ><br /><span style="color: rgb(255, 255, 255)"
-                                    >https://doi.org/10.1093/mnras/stac3125</span
-                                ><br /><br /></a
-                            ><br />
-                        </p>
-                        <p class="text-start">
-                            2.&nbsp; &nbsp;Gopal Bhatta, Sarvesh Gharat,
-                            Abhimanyu Borthakur, Aman Kumar, Gamma-ray Blazar
-                            Classification using Machine Learning with Advanced
-                            Weight Initialization and Self-Supervised Learning
-                            Techniques, Monthly Notices of the Royal
-                            Astronomical Society, Volume 528, Issue 1, February
-                            2024, Pages 976–986,&nbsp;
-                            <a href="https://doi.org/10.1093/mnras/stae028"
-                                ><br /><span style="color: rgb(255, 255, 255)">
-                                    https://doi.org/10.1093/mnras/stae028</span
-                                ><br /><br /></a
-                            ><br />
-                        </p>
-                        <p class="text-start">
-                            3.&nbsp; &nbsp;Aman Kumar, Sarvesh Gharat, Star
-                            Classification: A Deep Learning Approach for
-                            Identifying Binary and Exoplanet Stars,&nbsp;<a
-                                href="https://doi.org/10.48550/arXiv.2301.13115"
-                                ><br /><span style="color: rgb(255, 255, 255)"
-                                    >https://doi.org/10.48550/arXiv.2301.13115</span
-                                ><br /><br /></a
-                            ><br />
-                        </p>
-                    </div>
-                </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2025-02-15</div>
+            <div class="timeline-content">
+              <p>Update: Software project beta release.</p>
             </div>
+          </div> -->
         </div>
-        <footer id="footer">
-            <div
-                style="
-                    background: black;
-                    text-align: center;
-                    margin: 0px;
-                    padding: 10px;
-                "
-            >
-                <p style="color: grey; font-family: raleway">
-                    Made with ❤️ by amanasci.
-                </p>
-            </div>
-        </footer>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    </body>
+      </div>
+  </section>
+  
+  <!-- About/Research Section -->
+  <section id="about">
+    <h2>About / Research</h2>
+    <div class="content">
+      <div>
+        <p>
+          I am an aspiring astrophysicist with a keen interest in the mysteries of the universe. My research focuses on the study of cosmic phenomena, including black holes, high energy jets, and the evolution of galaxies. 
+          I am passionate about using computational methods to analyze astronomical data and develop models that can help us understand the fundamental laws of physics. Head over to the research section to know more about my work and interests.
+        </p>
+      </div>
+      <div>
+        <img src="assets/img/aman1-200h.jpeg" alt="Astronomy" style="width:200px; height:200px; object-fit: cover; border-radius: 50%; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);">
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore Projects Section -->
+  <section id="explore">
+    <h2>Explore Projects</h2>
+    <div class="explore-buttons">
+      <a href="astro.html">Astro Projects</a>
+      <a href="software.html">Software Projects</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:kumaramanasci@gmail.com">kumaramanasci@gmail.com</a></p>
+    <p>Social: 
+      <!-- <a href="#">Twitter</a> |  -->
+      <a href="https://www.linkedin.com/in/amanasci">LinkedIn</a>
+      <a href="https://scholar.google.co.in/citations?user=2UlfbpIAAAAJ&hl=en">Google Scholar</a>
+      <a href="https://github.com/amanasci">GitHub</a>
+      <a href="https://www.researchgate.net/profile/Aman-Kumar-318">ResearchGate</a>
+    </p>
+  </section>
+
+  <!-- Particle Animation Script -->
+  <script>
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particlesArray = [];
+    const numberOfParticles = 100;
+    
+    canvas.width = window.innerWidth;
+    canvas.height = document.getElementById('home').clientHeight;
+    
+    window.addEventListener('resize', function() {
+      canvas.width = window.innerWidth;
+      canvas.height = document.getElementById('home').clientHeight;
+    });
+    
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.radius = Math.random() * 2;
+        this.speedX = (Math.random() - 0.5) * 1;
+        this.speedY = (Math.random() - 0.5) * 1;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if(this.x < 0) this.x = canvas.width;
+        if(this.x > canvas.width) this.x = 0;
+        if(this.y < 0) this.y = canvas.height;
+        if(this.y > canvas.height) this.y = 0;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#ffffff";
+        ctx.fill();
+      }
+    }
+    
+    function initParticles() {
+      particlesArray = [];
+      for(let i = 0; i < numberOfParticles; i++){
+        particlesArray.push(new Particle());
+      }
+    }
+    
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for(let particle of particlesArray) {
+        particle.update();
+        particle.draw();
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    
+    initParticles();
+    animateParticles();
+  </script>
+</body>
 </html>
