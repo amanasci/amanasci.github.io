@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,244 +13,341 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Global Styles */
+    :root {
+      --bg-color: #0d0d0d;
+      --card-bg: #1a1a1a;
+      --text-color: #e0e0e0;
+      --accent-color: #DA70D6;
+      --accent-hover: #ba55d3;
+      --secondary-accent: #00bcd4;
+      --nav-bg: rgba(13, 13, 13, 0.85);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
+
     body {
       font-family: 'Montserrat', sans-serif;
       line-height: 1.6;
-      background-color: #121212;
-      color: #e0e0e0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
     }
+
     a {
       text-decoration: none;
       color: inherit;
+      transition: color 0.3s ease;
     }
+
     /* Navigation Bar */
     nav {
       position: fixed;
       width: 100%;
-      background: rgba(0, 0, 0, 0.85);
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
       z-index: 1000;
       padding: 1rem 2rem;
-      box-shadow: 0px 2px 5px rgba(0,0,0,0.7);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
+
     nav ul {
       list-style: none;
       display: flex;
       justify-content: flex-end;
+      align-items: center;
     }
+
     nav ul li {
       margin-left: 2rem;
     }
+
     nav ul li a {
-      color: #e0e0e0;
-      font-weight: bold;
-      transition: color 0.3s ease;
+      color: var(--text-color);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
+
     nav ul li a:hover {
-      color: #DA70D6;
+      color: var(--accent-color);
     }
+
     /* Hero Section */
     #home {
       position: relative;
       height: 100vh;
-      background: url("https://source.unsplash.com/1600x900/?space") no-repeat center center/cover;
-      background-attachment: fixed;
+      background: #000;
+      /* Fallback */
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
     }
-    #home::before {
-      content: "";
+
+    #particle-canvas {
       position: absolute;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
     }
+
     .hero-content {
       position: relative;
       text-align: center;
       color: #ffffff;
       z-index: 2;
+      pointer-events: none;
+      /* Let clicks pass through if needed */
     }
+
     .hero-content h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #ffffff, var(--accent-color));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      /* Fallback */
     }
+
     .hero-content p {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
+      color: #cccccc;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
-    /* Particle Canvas */
-    #particle-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
+
     /* Section Styles */
     section {
-      padding: 5rem 2rem;
+      padding: 6rem 2rem;
       position: relative;
     }
+
     section h2 {
       text-align: center;
-      margin-bottom: 2rem;
-      font-size: 2.8rem;
-      color: #DA70D6;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      position: relative;
+      /* Removed skewed positioning */
     }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background: var(--accent-color);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
     /* About Section */
     #about {
-      background: #1e1e1e;
+      background: #141414;
     }
+
     #about .content {
       max-width: 1000px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 2rem;
+      gap: 3rem;
       padding: 0 1rem;
     }
+
     #about .content div {
       flex: 1;
       min-width: 300px;
     }
+
     #about p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #cccccc;
+      line-height: 1.8;
       text-align: justify;
     }
+
     /* Explore Projects Section */
     #explore {
-      background: #181818;
+      background: var(--bg-color);
       text-align: center;
     }
+
     .explore-buttons {
       display: flex;
       justify-content: center;
       gap: 2rem;
       margin-top: 2rem;
     }
+
     .explore-buttons a {
-      padding: 1rem 2rem;
-      background: #242424;
-      border-radius: 8px;
-      color: #DA70D6;
-      font-size: 1.2rem;
+      padding: 1rem 2.5rem;
+      background: transparent;
+      border: 2px solid var(--accent-color);
+      border-radius: 50px;
+      color: var(--accent-color);
+      font-size: 1.1rem;
       font-weight: bold;
-      transition: background 0.3s ease, transform 0.3s ease;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
+
     .explore-buttons a:hover {
-      background: #DA70D6;
-      color: #121212;
+      background: var(--accent-color);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(218, 112, 214, 0.4);
       transform: translateY(-3px);
     }
+
     /* Contact Section */
     #contact {
-      background: #0d0d0d;
+      background: #000;
       text-align: center;
+      padding: 4rem 2rem;
+      border-top: 1px solid #333;
     }
+
     #contact p {
       margin-bottom: 1rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      color: #aaa;
     }
+
     #contact a {
-      color: #DA70D6;
+      color: var(--accent-color);
       font-weight: bold;
-      transition: color 0.3s ease;
+      margin: 0 0.5rem;
     }
+
     #contact a:hover {
-      color: #ffcc00;
+      color: #fff;
+      text-decoration: underline;
     }
-    /* Notice Board Section */
+
+    /* Notice Board Section (Redesigned) */
     #notice {
-      padding: 4rem 2rem;
-      background: #1a1a1a;
+      padding: 6rem 2rem;
+      background: #111;
     }
-    #notice h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 2.8rem;
-      color: #DA70D6;
-    }
+
     .timeline {
       position: relative;
       margin: 0 auto;
-      padding: 1rem 0;
       width: 100%;
       overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+      padding-bottom: 2rem;
     }
-    .timeline::-webkit-scrollbar {
-      display: none;
-    }
+
     .timeline-inner {
       display: flex;
-      gap: 2rem;
-      position: relative;
-      padding: 1rem;
-      white-space: nowrap;
+      gap: 3rem;
+      padding: 2rem;
+      /* Center if few items, left align if scrolling needed */
+      justify-content: flex-start;
+      min-width: max-content;
     }
-    .timeline-inner::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: #DA70D6;
-      transform: translateY(-50%);
-      z-index: 0;
-    }
+
     .timeline-item {
       position: relative;
-      padding: 1.5rem;
-      background: #242424;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
-      z-index: 1;
-      flex: 0 0 auto;
+      padding: 2rem;
+      background: #1e1e1e;
+      border-radius: 16px;
+      min-width: 280px;
+      max-width: 320px;
+      border: 1px solid #333;
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
+
+    .timeline-item:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent-color);
+    }
+
     .timeline-date {
-      font-size: 0.9rem;
-      color: #cccccc;
+      font-size: 0.85rem;
+      color: var(--accent-color);
       margin-bottom: 0.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
+
     .timeline-content p {
-      margin: 0;
-      font-size: 1rem;
-      color: #e0e0e0;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #fff;
     }
+
+    /* Scrollbar for timeline */
+    .timeline::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .timeline::-webkit-scrollbar-track {
+      background: #111;
+    }
+
+    .timeline::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px;
+    }
+
+    .timeline::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-color);
+    }
+
     /* Responsive Adjustments */
     @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
       nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      nav ul li {
+        margin: 0;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .explore-buttons {
         flex-direction: column;
         align-items: center;
       }
-      nav ul li {
-        margin: 0.5rem 0;
-      }
-      .hero-content h1 {
-        font-size: 2.8rem;
-      }
-      .hero-content p {
-        font-size: 1.4rem;
-      }
-      .explore-buttons {
-        flex-direction: column;
+
+      .timeline-inner {
+        padding: 1rem;
+        gap: 1.5rem;
       }
     }
   </style>
 </head>
+
 <body>
   <!-- Navigation Bar -->
   <nav>
@@ -268,36 +366,50 @@
     <canvas id="particle-canvas"></canvas>
     <div class="hero-content">
       <h1>Aman Kumar</h1>
-      <p>Aspiring Astrophysicist</p>
+      <p>Aspiring Astrophysicist | AI Reasearcher</p>
     </div>
   </section>
-  
+
   <!-- Notice Board Section -->
   <section id="notice">
     <h2>Notice Board</h2>
-      <div class="timeline">
-        <div class="timeline-inner">
+    <div class="timeline">
+      <div class="timeline-inner">
 
-          <div class="timeline-item">
-            <div class="timeline-date">January 2025</div>
-            <div class="timeline-content">
-              <p>ChronoXtract:Beta Release!</p>
-            </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">January 2026</div>
+          <div class="timeline-content">
+            <p>BH-NS Classification Paper</p>
           </div>
+        </div>
 
-          <div class="timeline-item">
-            <div class="timeline-date">August 2025</div>
-            <div class="timeline-content">
-              <p>RefForge: Beta Release!</p>
-            </div>
+        <div class="timeline-item">
+          <div class="timeline-date">September 2025</div>
+          <div class="timeline-content">
+            <p>NeurInk: V2!</p>
           </div>
+        </div>
 
-          <div class="timeline-item">
-            <div class="timeline-date">September 2025</div>
-            <div class="timeline-content">
-              <p>NeurInk: V2!</p>
-            </div>
-          <!-- <div class="timeline-item">
+        <div class="timeline-item">
+          <div class="timeline-date">August 2025</div>
+          <div class="timeline-content">
+            <p>RefForge: Beta Release!</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">January 2025</div>
+          <div class="timeline-content">
+            <p>ChronoXtract:Beta Release!</p>
+          </div>
+        </div>
+
+
+
+
+
+        <!-- <div class="timeline-item">
             <div class="timeline-date">2025-02-15</div>
             <div class="timeline-content">
               <p>Update: Software project beta release.</p>
@@ -315,22 +427,26 @@
               <p>Update: Software project beta release.</p>
             </div>
           </div> -->
-        </div>
       </div>
+    </div>
   </section>
-  
+
   <!-- About/Research Section -->
   <section id="about">
     <h2>About / Research</h2>
     <div class="content">
       <div>
         <p>
-          I am an aspiring astrophysicist with a keen interest in the mysteries of the universe. My research focuses on the study of cosmic phenomena, including black holes, high energy jets, and the evolution of galaxies. 
-          I am passionate about using computational methods to analyze astronomical data and develop models that can help us understand the fundamental laws of physics. Head over to the research section to know more about my work and interests.
+          I am an aspiring astrophysicist with a keen interest in the mysteries of the universe. My research focuses on
+          the study of cosmic phenomena, including black holes, high energy jets, and the evolution of galaxies.
+          I am passionate about using computational methods to analyze astronomical data and develop models that can
+          help us understand the fundamental laws of physics. Head over to the research section to know more about my
+          work and interests.
         </p>
       </div>
       <div>
-        <img src="assets/img/aman1-200h.jpeg" alt="Astronomy" style="width:200px; height:200px; object-fit: cover; border-radius: 50%; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);">
+        <img src="assets/img/aman1-200h.jpeg" alt="Astronomy"
+          style="width:200px; height:200px; object-fit: cover; border-radius: 50%; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);">
       </div>
     </div>
   </section>
@@ -348,7 +464,7 @@
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:kumaramanasci@gmail.com">kumaramanasci@gmail.com</a></p>
-    <p>Social: 
+    <p>Social:
       <!-- <a href="#">Twitter</a> |  -->
       <a href="https://www.linkedin.com/in/amanasci">LinkedIn</a>
       <a href="https://scholar.google.co.in/citations?user=2UlfbpIAAAAJ&hl=en">Google Scholar</a>
@@ -363,15 +479,15 @@
     const ctx = canvas.getContext('2d');
     let particlesArray = [];
     const numberOfParticles = 100;
-    
+
     canvas.width = window.innerWidth;
-    canvas.height = document.getElementById('home').clientHeight;
-    
-    window.addEventListener('resize', function() {
+    canvas.height = window.innerHeight; // Fill full screen
+
+    window.addEventListener('resize', function () {
       canvas.width = window.innerWidth;
-      canvas.height = document.getElementById('home').clientHeight;
+      canvas.height = window.innerHeight;
     });
-    
+
     class Particle {
       constructor() {
         this.x = Math.random() * canvas.width;
@@ -383,10 +499,10 @@
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        if(this.x < 0) this.x = canvas.width;
-        if(this.x > canvas.width) this.x = 0;
-        if(this.y < 0) this.y = canvas.height;
-        if(this.y > canvas.height) this.y = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.x > canvas.width) this.x = 0;
+        if (this.y < 0) this.y = canvas.height;
+        if (this.y > canvas.height) this.y = 0;
       }
       draw() {
         ctx.beginPath();
@@ -395,25 +511,26 @@
         ctx.fill();
       }
     }
-    
+
     function initParticles() {
       particlesArray = [];
-      for(let i = 0; i < numberOfParticles; i++){
+      for (let i = 0; i < numberOfParticles; i++) {
         particlesArray.push(new Particle());
       }
     }
-    
+
     function animateParticles() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for(let particle of particlesArray) {
+      for (let particle of particlesArray) {
         particle.update();
         particle.draw();
       }
       requestAnimationFrame(animateParticles);
     }
-    
+
     initParticles();
     animateParticles();
   </script>
 </body>
+
 </html>
