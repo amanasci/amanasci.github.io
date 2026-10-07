@@ -8,542 +8,159 @@
   <meta name="description" content="Research profile of Aman Kumar, a masters student in Astrophysics at IUCAA, India.">
   <meta name="keywords" content="research, Aman Kumar, Astrophysics, IUCAA, publications, software development">
   <meta name="author" content="Aman Kumar">
+  <meta name="theme-color" content="#111213">
   <title>Aman Kumar</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* Global Styles */
-    :root {
-      --bg-color: #0d0d0d;
-      --card-bg: #1a1a1a;
-      --text-color: #e0e0e0;
-      --accent-color: #DA70D6;
-      --accent-hover: #ba55d3;
-      --secondary-accent: #00bcd4;
-      --nav-bg: rgba(13, 13, 13, 0.85);
-    }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+  <!-- Type: Newsreader carries the name and headings, IBM Plex Sans the rest -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      line-height: 1.6;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      overflow-x: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.3s ease;
-    }
-
-    /* Navigation Bar */
-    nav {
-      position: fixed;
-      width: 100%;
-      background: var(--nav-bg);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    nav ul li {
-      margin-left: 2rem;
-    }
-
-    nav ul li a {
-      color: var(--text-color);
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    nav ul li a:hover {
-      color: var(--accent-color);
-    }
-
-    /* Hero Section */
-    #home {
-      position: relative;
-      height: 100vh;
-      background: #000;
-      /* Fallback */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    #particle-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-
-    .hero-content {
-      position: relative;
-      text-align: center;
-      color: #ffffff;
-      z-index: 2;
-      pointer-events: none;
-      /* Let clicks pass through if needed */
-    }
-
-    .hero-content h1 {
-      font-size: 4rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-      background: linear-gradient(to right, #ffffff, var(--accent-color));
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: transparent;
-      /* Fallback */
-    }
-
-    .hero-content p {
-      font-size: 1.5rem;
-      color: #cccccc;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* Section Styles */
-    section {
-      padding: 6rem 2rem;
-      position: relative;
-    }
-
-    section h2 {
-      text-align: center;
-      margin-bottom: 3rem;
-      font-size: 2.5rem;
-      color: var(--accent-color);
-      position: relative;
-      /* Removed skewed positioning */
-    }
-
-    section h2::after {
-      content: '';
-      position: absolute;
-      width: 60px;
-      height: 4px;
-      background: var(--accent-color);
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
-
-    /* About Section */
-    #about {
-      background: #141414;
-    }
-
-    #about .content {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 3rem;
-      padding: 0 1rem;
-    }
-
-    #about .content div {
-      flex: 1;
-      min-width: 300px;
-    }
-
-    #about p {
-      font-size: 1.1rem;
-      color: #cccccc;
-      line-height: 1.8;
-      text-align: justify;
-    }
-
-    /* Explore Projects Section */
-    #explore {
-      background: var(--bg-color);
-      text-align: center;
-    }
-
-    .explore-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .explore-buttons a {
-      padding: 1rem 2.5rem;
-      background: transparent;
-      border: 2px solid var(--accent-color);
-      border-radius: 50px;
-      color: var(--accent-color);
-      font-size: 1.1rem;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .explore-buttons a:hover {
-      background: var(--accent-color);
-      color: #fff;
-      box-shadow: 0 0 20px rgba(218, 112, 214, 0.4);
-      transform: translateY(-3px);
-    }
-
-    /* Contact Section */
-    #contact {
-      background: #000;
-      text-align: center;
-      padding: 4rem 2rem;
-      border-top: 1px solid #333;
-    }
-
-    #contact p {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-      color: #aaa;
-    }
-
-    #contact a {
-      color: var(--accent-color);
-      font-weight: bold;
-      margin: 0 0.5rem;
-    }
-
-    #contact a:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
-
-    /* Notice Board Section (Redesigned) */
-    #notice {
-      padding: 6rem 2rem;
-      background: #111;
-    }
-
-    .timeline {
-      position: relative;
-      margin: 0 auto;
-      width: 100%;
-      overflow-x: auto;
-      padding-bottom: 2rem;
-    }
-
-    .timeline-inner {
-      display: flex;
-      gap: 3rem;
-      padding: 2rem;
-      /* Center if few items, left align if scrolling needed */
-      justify-content: flex-start;
-      min-width: max-content;
-    }
-
-    .timeline-item {
-      position: relative;
-      padding: 2rem;
-      background: #1e1e1e;
-      border-radius: 16px;
-      min-width: 280px;
-      max-width: 320px;
-      border: 1px solid #333;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .timeline-item:hover {
-      transform: translateY(-10px);
-      border-color: var(--accent-color);
-    }
-
-    .timeline-date {
-      font-size: 0.85rem;
-      color: var(--accent-color);
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .timeline-content p {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: #fff;
-    }
-
-    /* Scrollbar for timeline */
-    .timeline::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .timeline::-webkit-scrollbar-track {
-      background: #111;
-    }
-
-    .timeline::-webkit-scrollbar-thumb {
-      background: #333;
-      border-radius: 4px;
-    }
-
-    .timeline::-webkit-scrollbar-thumb:hover {
-      background: var(--accent-color);
-    }
-
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-      nav {
-        padding: 1rem;
-      }
-
-      nav ul {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      nav ul li {
-        margin: 0;
-      }
-
-      .hero-content h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero-content p {
-        font-size: 1rem;
-      }
-
-      .explore-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .timeline-inner {
-        padding: 1rem;
-        gap: 1.5rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/site.css" />
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- Navigation Bar -->
-  <nav>
+  <nav class="site-nav" aria-label="Primary">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="astro.html">Astro Projects</a></li>
-      <li><a href="software.html">Software Projects</a></li>
+      <li><a href="index.html" aria-current="page">Home</a></li>
       <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="software.html">Software</a></li>
       <li><a href="https://amanasci.github.io/blog/">Blog</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="home">
-    <canvas id="particle-canvas"></canvas>
-    <div class="hero-content">
-      <h1>Aman Kumar</h1>
-      <p>Aspiring Astrophysicist | AI Reasearcher</p>
-    </div>
-  </section>
-
-  <!-- Notice Board Section -->
-  <section id="notice">
-    <h2>Notice Board</h2>
-    <div class="timeline">
-      <div class="timeline-inner">
-
-        <div class="timeline-item">
-          <div class="timeline-date">June 2026</div>
-          <div class="timeline-content">
-            <p>Platonic Universe : Accepted for Mech Interp Workshop @ ICML 2026</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-date">Feb 2026</div>
-          <div class="timeline-content">
-            <p>ZTF Narrow-Line Seyfert 1 Galaxies Paper</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-date">January 2026</div>
-          <div class="timeline-content">
-            <p>BH-NS Classification Paper</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-date">September 2025</div>
-          <div class="timeline-content">
-            <p>NeurInk: V2!</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-date">August 2025</div>
-          <div class="timeline-content">
-            <p>RefForge: Beta Release!</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-date">January 2025</div>
-          <div class="timeline-content">
-            <p>ChronoXtract:Beta Release!</p>
-          </div>
-        </div>
-
-
-
-
-
-        <!-- <div class="timeline-item">
-            <div class="timeline-date">2025-02-15</div>
-            <div class="timeline-content">
-              <p>Update: Software project beta release.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">2025-02-15</div>
-            <div class="timeline-content">
-              <p>Update: Software project beta release.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">2025-02-15</div>
-            <div class="timeline-content">
-              <p>Update: Software project beta release.</p>
-            </div>
-          </div> -->
+  <main id="main">
+    <!-- Masthead -->
+    <section class="masthead" id="home">
+      <canvas id="particle-canvas" aria-hidden="true"></canvas>
+      <div class="masthead__inner">
+        <h1>Aman Kumar</h1>
+        <!-- <p>Physicist & AI/ML Engineer</p> -->
+        <!-- <p>Reasearcher</p> -->
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About/Research Section -->
-  <section id="about">
-    <h2>About / Research</h2>
-    <div class="content">
-      <div>
-        <p>
-          I am an aspiring astrophysicist with a keen interest in the mysteries of the universe. My research focuses on
-          the study of cosmic phenomena, including black holes, high energy jets, and the evolution of galaxies.
-          I am passionate about using computational methods to analyze astronomical data and develop models that can
-          help us understand the fundamental laws of physics. Head over to the research section to know more about my
-          work and interests.
-        </p>
+    <!-- Notice Board Section -->
+    <section class="section" id="notice" aria-labelledby="notice-title">
+      <div class="section__inner">
+        <div class="section__head">
+          <h2 id="notice-title">Notice Board</h2>
+        </div>
+        <div class="register">
+          <article class="register__row reveal">
+            <p class="register__date">June 2026</p>
+            <p class="register__text">Platonic Universe : Accepted for Mech Interp Workshop @ ICML 2026</p>
+          </article>
+
+          <article class="register__row reveal">
+            <p class="register__date">Feb 2026</p>
+            <p class="register__text">ZTF Narrow-Line Seyfert 1 Galaxies Paper</p>
+          </article>
+
+          <article class="register__row reveal">
+            <p class="register__date">January 2026</p>
+            <p class="register__text">BH-NS Classification Paper</p>
+          </article>
+
+          <!-- <article class="register__row">
+            <p class="register__date">September 2025</p>
+            <p class="register__text">NeurInk: V2!</p>
+          </article>
+
+          <article class="register__row">
+            <p class="register__date">August 2025</p>
+            <p class="register__text">RefForge: Beta Release!</p>
+          </article>
+
+          <article class="register__row">
+            <p class="register__date">January 2025</p>
+            <p class="register__text">ChronoXtract:Beta Release!</p>
+          </article> -->
+        </div>
       </div>
-      <div>
-        <img src="assets/img/aman1-200h.jpeg" alt="Astronomy"
-          style="width:200px; height:200px; object-fit: cover; border-radius: 50%; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);">
+    </section>
+
+    <!-- About/Research Section -->
+    <section class="section section--elev" id="about" aria-labelledby="about-title">
+      <div class="section__inner">
+        <div class="section__head">
+          <h2 id="about-title">About / Research</h2>
+        </div>
+        <div class="about-grid">
+          <div class="prose reveal">
+            <p>
+              I am a physicist and AI/ML engineer interested in building intelligent systems and using machine learning
+              to understand complex scientific problems.
+              My work spans generative AI, foundation models, scientific machine learning, and representation learning,
+              with a particular interest in understanding how intelligent systems learn and reason.
+            </p>
+            <p>
+              I currently work on generative AI and agentic systems in industry, while continuing to explore research at
+              the intersection of machine learning and science.
+              Previously, I worked on astrophysics and astronomical data analysis, including Bayesian models for
+              radio-galaxy morphology, neural operators for astrophysical systems, and mechanistic interpretability of
+              foundation models.
+            </p>
+            <p>
+              I hold an M.Sc. in Physics with Astrophysics from IUCAA and SPPU, and a B.Tech. in Electrical Engineering
+              from Tezpur University.
+              Over the years, I have worked across astrophysics, machine learning, uncertainty quantification, computer
+              vision, and scientific computing, mostly following whatever problem I found interesting at the time.
+            </p>
+          </div>
+          <figure class="portrait reveal">
+            <img src="assets/img/aman1-200h.jpeg" alt="Aman Kumar" width="200" height="200" />
+          </figure>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Explore Projects Section -->
-  <section id="explore">
-    <h2>Explore Projects</h2>
-    <div class="explore-buttons">
-      <a href="astro.html">Astro Projects</a>
-      <a href="software.html">Software Projects</a>
-    </div>
-  </section>
+    <!-- Explore Section -->
+    <section class="section" id="explore" aria-labelledby="explore-title">
+      <div class="section__inner">
+        <div class="section__head">
+          <h2 id="explore-title">Explore</h2>
+        </div>
+        <div class="actions reveal">
+          <a class="btn" href="publications.html">Publications</a>
+          <a class="btn" href="software.html">Software</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:kumaramanasci@gmail.com">kumaramanasci@gmail.com</a></p>
-    <p>Social:
-      <!-- <a href="#">Twitter</a> |  -->
-      <a href="https://www.linkedin.com/in/amanasci">LinkedIn</a>
-      <a href="https://scholar.google.co.in/citations?user=2UlfbpIAAAAJ&hl=en">Google Scholar</a>
-      <a href="https://github.com/amanasci">GitHub</a>
-      <a href="https://www.researchgate.net/profile/Aman-Kumar-318">ResearchGate</a>
-    </p>
-  </section>
+    <!-- Contact Section -->
+    <section class="section section--close" id="contact" aria-labelledby="contact-title">
+      <div class="section__inner">
+        <div class="section__head">
+          <h2 id="contact-title">Contact</h2>
+        </div>
+        <div class="contact-rows reveal">
+          <div class="contact-row">
+            <p class="contact-row__label">Email</p>
+            <p class="contact-row__value"><a href="mailto:kumaramanasci@gmail.com">kumaramanasci@gmail.com</a></p>
+          </div>
+          <div class="contact-row">
+            <p class="contact-row__label">Social</p>
+            <ul class="contact-row__value social">
+              <li><a href="https://www.linkedin.com/in/amanasci">LinkedIn</a></li>
+              <li><a href="https://scholar.google.co.in/citations?user=2UlfbpIAAAAJ&hl=en">Google Scholar</a></li>
+              <li><a href="https://github.com/amanasci">GitHub</a></li>
+              <li><a href="https://www.researchgate.net/profile/Aman-Kumar-318">ResearchGate</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <!-- Particle Animation Script -->
-  <script>
-    const canvas = document.getElementById('particle-canvas');
-    const ctx = canvas.getContext('2d');
-    let particlesArray = [];
-    const numberOfParticles = 100;
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight; // Fill full screen
-
-    window.addEventListener('resize', function () {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.radius = Math.random() * 2;
-        this.speedX = (Math.random() - 0.5) * 1;
-        this.speedY = (Math.random() - 0.5) * 1;
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.y < 0) this.y = canvas.height;
-        if (this.y > canvas.height) this.y = 0;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "#ffffff";
-        ctx.fill();
-      }
-    }
-
-    function initParticles() {
-      particlesArray = [];
-      for (let i = 0; i < numberOfParticles; i++) {
-        particlesArray.push(new Particle());
-      }
-    }
-
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let particle of particlesArray) {
-        particle.update();
-        particle.draw();
-      }
-      requestAnimationFrame(animateParticles);
-    }
-
-    initParticles();
-    animateParticles();
-  </script>
+  <script src="assets/js/site.js" defer></script>
 </body>
 
 </html>

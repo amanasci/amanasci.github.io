@@ -5,239 +5,146 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="assets/img/favicon.png" type="image/png" />
-  <meta name="description" content="Research profile of Aman Kumar, a masters student in Astrophysics at IUCAA, India.">
-  <meta name="keywords" content="research, Aman Kumar, Astrophysics, IUCAA, publications, software development">
+  <meta name="description"
+    content="Research of Aman Kumar — applied AI for the physical sciences, foundation models, and mechanistic interpretability.">
+  <meta name="keywords"
+    content="research, Aman Kumar, applied AI, machine learning, foundation models, mechanistic interpretability, high energy astrophysics">
   <meta name="author" content="Aman Kumar">
-  <title>Research Profile</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Optional: Remove or update your external stylesheet if needed -->
-  <link rel="stylesheet" href="assets/css/styles.min.css" />
-  <style>
-    /* Global Styles */
-    :root {
-      --bg-color: #0d0d0d;
-      --card-bg: #1e1e1e;
-      --text-color: #e0e0e0;
-      --accent-color: #DA70D6;
-      --accent-hover: #ba55d3;
-      --nav-bg: rgba(13, 13, 13, 0.85);
-      --border-color: #333;
-    }
+  <meta name="theme-color" content="#111213">
+  <title>Research | Aman Kumar</title>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      line-height: 1.8;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      overflow-x: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-      /* Default inherit */
-      transition: color 0.3s ease;
-    }
-
-    /* Navigation Bar */
-    header nav {
-      position: fixed;
-      width: 100%;
-      background: var(--nav-bg);
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      z-index: 1000;
-    }
-
-    header nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    header nav ul li {
-      margin-left: 2rem;
-    }
-
-    header nav ul li a {
-      color: var(--text-color);
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    header nav ul li a:hover {
-      color: var(--accent-color);
-    }
-
-    /* Container & Main Content */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 8rem 2rem 4rem;
-      /* Adjusted for fixed nav */
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      color: #fff;
-      text-align: center;
-    }
-
-    p {
-      font-size: 1.15rem;
-      color: #ccc;
-      margin-bottom: 1.5rem;
-      text-align: justify;
-    }
-
-    p a {
-      color: var(--accent-color);
-      font-weight: bold;
-      border-bottom: 1px solid transparent;
-    }
-
-    p a:hover {
-      border-bottom-color: var(--accent-color);
-    }
-
-    /* Research Interests Pills */
-    ul.interests-list {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 2rem 0;
-      justify-content: center;
-    }
-
-    ul.interests-list li {
-      background: rgba(218, 112, 214, 0.1);
-      border: 1px solid var(--accent-color);
-      color: var(--accent-color);
-      padding: 0.5rem 1.5rem;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      cursor: default;
-    }
-
-    ul.interests-list li:hover {
-      background: var(--accent-color);
-      color: #fff;
-      box-shadow: 0 0 15px rgba(218, 112, 214, 0.4);
-      transform: translateY(-2px);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #000;
-      color: #777;
-      font-size: 0.9rem;
-      border-top: 1px solid #222;
-      margin-top: 4rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      header nav {
-        padding: 1rem;
-      }
-
-      header nav ul {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      header nav ul li {
-        margin: 0;
-      }
-
-      h1 {
-        font-size: 2.2rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/site.css" />
 </head>
 
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="software.html">Software</a></li>
-        <li><a href="astro.html">Astro</a></li>
-      </ul>
-    </nav>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Navigation Bar -->
+  <nav class="site-nav" aria-label="Primary">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html" aria-current="page">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="software.html">Software</a></li>
+      <li><a href="https://amanasci.github.io/blog/">Blog</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header class="page-head">
+    <div class="page-head__inner">
+      <h1>Research</h1>
+    </div>
   </header>
-  <main>
-    <div class="container">
-      <h1>Research Profile</h1>
-      <p>Hello! This is Aman Kumar, a masters student in Astrophysics at IUCAA, India. I love to work on astrophysical
-        problems and software development.
-        My research interests include:</p>
-      <br>
-      <ul class="interests-list">
-        <li>Astrophysical Transients</li>
-        <li>Machine Learning in Astronomy</li>
-        <li>Software Development for Astronomy</li>
-        <li>Astrophysical Simulations</li>
-        <li>High Energy Astrophysics</li>
+
+  <main class="page-body" id="main">
+    <div class="page-body__inner">
+      <div class="prose reveal">
+        <p>My research is in applied AI: using machine learning to solve problems in the physical sciences, and using
+          scientific data as a testbed for understanding how intelligent systems represent and reason.</p>
+        <p>Most of my published work applies deep learning to high-energy astrophysics: classifying blazars and X-ray
+          binaries, and characterising the optical variability of active galactic nuclei. My recent work has moved
+          toward foundation models and mechanistic interpretability, asking whether models trained on different
+          instruments and modalities converge on the same representation of the sky, and what that tells us about the
+          models themselves.</p>
+        <p>I hold an M.Sc. in Physics with Astrophysics from IUCAA and SPPU, and a B.Tech. in Electrical Engineering
+          from Tezpur University. My work spans astrophysics, machine learning, uncertainty quantification, computer
+          vision, and scientific computing.</p>
+      </div>
+
+      <ul class="tags reveal">
+        <li>Applied AI for science</li>
+        <li>Foundation models</li>
+        <li>Mechanistic interpretability</li>
+        <li>Machine learning for astronomy</li>
+        <li>High energy astrophysics</li>
+        <li>Time-domain astronomy</li>
+        <li>Representation learning</li>
+        <li>Uncertainty quantification</li>
       </ul>
-      <br>
-      <p>My research work is focused on the study of high energy astrophysical objects and transients.
-        I am also interested in the development of software tools for data analysis and simulations in astronomy.</p>
-      <br>
-      <p> When I am not working on my research projects I am busy thinking about getting students into research through
-        <a href="https://psintica.github.io/">Psintica</a></p>
-      <br>
-      <p>Feel free to reach out to me for collaboration or any queries related to my research work.</p>
-      <br>
 
+      <section aria-labelledby="selected-title">
+        <div class="section__head">
+          <h2 id="selected-title">Selected work</h2>
+        </div>
 
+        <div class="pub-list">
+          <article class="pub reveal">
+            <div class="pub__body">
+              <h4 class="pub__title">
+                <a href="https://arxiv.org/abs/2509.19453">The Platonic Universe: Do Foundation Models See the Same
+                  Sky?</a>
+              </h4>
+              <p class="pub__authors">T. Borrell, S. Dillmann, K. Duraphe, F. Eris, K. Iyer, A. Khederlarian,
+                <strong>A. Kumar</strong>, et al.</p>
+              <p class="pub__venue">Mechanistic Interpretability Workshop at ICML 2026 · arXiv:2509.19453</p>
+            </div>
+            <div class="pub__meta">
+              <span class="pub__year">2026</span>
+              <span class="pub__tag">Interpretability</span>
+            </div>
+          </article>
 
+          <article class="pub reveal">
+            <div class="pub__body">
+              <h4 class="pub__title">
+                <a href="https://arxiv.org/abs/2602.22410">ZTF Monitoring of Gamma-Ray Emitting Narrow Line Seyfert 1
+                  Galaxies</a>
+              </h4>
+              <p class="pub__authors"><strong>A. Kumar</strong>, S. C. Chaudhary, R. Prince, B. van Soelen,
+                I. P. van der Westhuizen</p>
+              <p class="pub__venue">arXiv:2602.22410</p>
+            </div>
+            <div class="pub__meta">
+              <span class="pub__year">2026</span>
+              <span class="pub__tag">Time-domain</span>
+            </div>
+          </article>
 
-      <!-- <section id="biography">
-        <h2>Biography</h2>
-        <p>[Placeholder: Insert biography details here]</p>
+          <article class="pub reveal">
+            <div class="pub__body">
+              <h4 class="pub__title">
+                <a href="https://doi.org/10.1093/mnras/stae028">Gamma-ray blazar classification using machine learning
+                  with advanced weight initialization and self-supervised learning techniques</a>
+              </h4>
+              <p class="pub__authors">G. Bhatta, S. Gharat, A. Borthakur, <strong>A. Kumar</strong></p>
+              <p class="pub__venue">Monthly Notices of the Royal Astronomical Society 528 (1), 976–986</p>
+            </div>
+            <div class="pub__meta">
+              <span class="pub__year">2024</span>
+              <span class="pub__tag">ML for astronomy</span>
+            </div>
+          </article>
+        </div>
+
+        <p class="pub-more">
+          <a href="publications.html">All publications <span aria-hidden="true">&#8594;</span></a>
+        </p>
       </section>
-      <section id="research-interests">
-        <h2>Research Interests</h2>
-        <p>[Placeholder: Insert research interests here]</p>
-      </section>
-      <section id="publications">
-        <h2>Publications</h2>
-        <p>[Placeholder: List your publications here]</p>
-      </section>
-      <section id="projects">
-        <h2>Projects</h2>
-        <p>[Placeholder: List your research projects here]</p>
-      </section> -->
+
+      <div class="prose reveal">
+        <p>When I am not working on my research projects I am busy thinking about getting students into research through
+          <a href="https://psintica.github.io/">Psintica</a>
+        </p>
+        <p>Feel free to reach out to me for collaboration or any queries related to my research work.</p>
+      </div>
     </div>
   </main>
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Asci Labs. All rights reserved.</p>
+
+  <footer class="page-footer">
+    <div class="page-footer__inner">
+      &copy; 2025 Asci Labs. All rights reserved.
     </div>
   </footer>
+
+  <script src="assets/js/site.js" defer></script>
 </body>
 
 </html>
